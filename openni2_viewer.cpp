@@ -120,13 +120,15 @@ public:
     cloud_ = cloud;
     static int count=0;
     count++;
-    if(count%30==0)
+    if(count<300)
     {
     cout<<"the "<<count<<" is saved"<<endl;
     sprintf(filename,"./data/%d.pcd",count);
     pcl::io::savePCDFile (filename, *cloud);
     //pcl::io::savePCDFileBinary ("./data/test_pcd_Binary.pcd", *cloud);
     }
+    else
+    exit(0);
   }
 
   void
@@ -316,15 +318,6 @@ public:
                 }
                 i++;
             }
-    char filename[20] = {0};
-    static int count=0;
-    count++;
-    if(count%30==0)
-    {
-    cout<<"the "<<count<<" is saved"<<endl;
-    sprintf(filename,"./data2/%d.pcd",count);
-    pcl::io::savePCDFile (filename, *cloud);
-    }
 
       }
       if (image_mutex_.try_lock ())
