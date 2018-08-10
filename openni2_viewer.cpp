@@ -125,7 +125,6 @@ public:
     cout<<"the "<<count<<" is saved"<<endl;
     sprintf(filename,"./data/%d.pcd",count);
     pcl::io::savePCDFile (filename, *cloud);
-    //pcl::io::savePCDFileBinary ("./data/test_pcd_Binary.pcd", *cloud);
     }
     else
     exit(0);
